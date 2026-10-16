@@ -3,3 +3,5 @@ ghost_events.db
 audit.json
 **/__pycache__/
 __pycache__/
+backups/
+*.db

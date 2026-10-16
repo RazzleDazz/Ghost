@@ -1,11 +1,13 @@
 import os
 import urllib.request
+import urllib.error
 import json
 import subprocess
 import time
 from datetime import datetime
 
-URL = "http://127.0.0.1:8080"
+API_KEY = os.environ.get("GEMINI_API_KEY")
+URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
 LOG_FILE = "bridge_audit.log"
 ALLOWED_COMMANDS = ["uname", "uptime", "date", "df", "free"]
 
@@ -21,10 +23,11 @@ def execute_bridge():
     payload = {
         "contents": [{
             "parts": [{
-                "text": "Return a JSON object with a single key \"command\" containing a safe bash command like \"uptime\" or \"none\"."
+                "text": "Return a JSON object with a single key 'command' containing a safe bash command like 'uptime' or 'none'."
             }]
         }]
     }
+
     try:
         req = urllib.request.Request(URL, data=json.dumps(payload).encode("utf-8"), headers=headers, method="POST")
         with urllib.request.urlopen(req) as response:
@@ -37,6 +40,7 @@ def execute_bridge():
             raw = raw.strip()
             cmd = json.loads(raw).get("command", "none")
             log_event(f"Received instruction: {cmd}")
+
             base_cmd = cmd.split()[0] if cmd else ""
             if base_cmd in ALLOWED_COMMANDS:
                 out = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT).decode("utf-8")
@@ -45,11 +49,12 @@ def execute_bridge():
                 log_event("No remote action required.")
             else:
                 log_event(f"Blocked unauthorized command: {cmd}")
+    except urllib.error.HTTPError as e:
+        err_body = e.read().decode("utf-8")
+        log_event(f"HTTP Error {e.code}: {err_body}")
     except Exception as e:
         log_event(f"Execution failed: {e}")
 
 if __name__ == "__main__":
-    log_event("Starting hardened autonomous bridge daemon loop...")
-    while True:
-        execute_bridge()
-        time.sleep(10)
+    log_event("Starting live production autonomous bridge daemon...")
+    execute_bridge()

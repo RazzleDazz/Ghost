@@ -35,3 +35,59 @@ Linux localhost 6.6.127-android15-8-gd00dbafe5604-ab16030312-4k #1 SMP PREEMPT T
   }
 }
 
+[2026-10-16 00:20:47] Starting live production autonomous bridge daemon...
+[2026-10-16 00:20:47] HTTP Error 400: {
+  "error": {
+    "code": 400,
+    "message": "API key not valid. Please pass a valid API key.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "API_KEY_INVALID",
+        "domain": "googleapis.com",
+        "metadata": {
+          "service": "generativelanguage.googleapis.com"
+        }
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+        "locale": "en-US",
+        "message": "API key not valid. Please pass a valid API key."
+      }
+    ]
+  }
+}
+
+[2026-10-16 00:21:53] Starting live production autonomous bridge daemon...
+[2026-10-16 00:21:53] HTTP Error 400: {
+  "error": {
+    "code": 400,
+    "message": "API key not valid. Please pass a valid API key.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "API_KEY_INVALID",
+        "domain": "googleapis.com",
+        "metadata": {
+          "service": "generativelanguage.googleapis.com"
+        }
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+        "locale": "en-US",
+        "message": "API key not valid. Please pass a valid API key."
+      }
+    ]
+  }
+}
+
+[2026-10-16 00:22:12] Starting live production autonomous bridge daemon...
+[2026-10-16 00:22:12] Received instruction: uname -a
+[2026-10-16 00:22:12] Execution Output:
+Linux localhost 6.6.127-android15-8-gd00dbafe5604-ab16030312-4k #1 SMP PREEMPT Thu Aug  6 07:52:26 UTC 2026 aarch64 Android
+[2026-10-16 00:22:38] Starting live production autonomous bridge daemon...
+[2026-10-16 00:22:38] Received instruction: uname -a
+[2026-10-16 00:22:38] Execution Output:
+Linux localhost 6.6.127-android15-8-gd00dbafe5604-ab16030312-4k #1 SMP PREEMPT Thu Aug  6 07:52:26 UTC 2026 aarch64 Android

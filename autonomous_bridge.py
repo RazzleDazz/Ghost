@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 
 API_KEY = os.environ.get("GEMINI_API_KEY")
-URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
+URL = "http://127.0.0.1:8080"
 LOG_FILE = "bridge_audit.log"
 ALLOWED_COMMANDS = ["uname", "uptime", "date", "df", "free"]
 

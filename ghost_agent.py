@@ -1,10 +1,22 @@
-import os, sys, subprocess, importlib.util, sqlite3, shutil, hashlib, time
+import os
+import sys
+import subprocess
+import importlib.util
+import sqlite3
+import shutil
+import hashlib
 from datetime import datetime
+
+if importlib.util.find_spec("psutil") is None:
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "psutil"])
+    except Exception:
+        pass
 
 import psutil
 
-DB_NAME = "ghost_events.db"
-POLL_INTERVAL = 10
+DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ghost_events.db")
+ALLOWED_PORTS = [22, 80, 443, 8080]
 CPU_THRESHOLD = 50.0
 
 def init_db():
@@ -45,29 +57,40 @@ def run_health_check():
     home_dir = os.path.expanduser("~")
     _, _, free = shutil.disk_usage(home_dir)
     free_mb = free // (2**20)
-    return free_mb > 10, free_mb
+    disk_ok = free_mb > 10
+    writable = os.access(home_dir, os.W_OK)
+    return disk_ok, writable, free_mb
+
+def check_listening_ports():
+    anomalies = []
+    try:
+        for conn in psutil.net_connections(kind="inet"):
+            if conn.status == psutil.CONN_LISTEN:
+                port = conn.laddr.port
+                if port not in ALLOWED_PORTS:
+                    anomalies.append((port, conn.pid))
+    except (PermissionError, psutil.AccessDenied):
+        pass
+    return anomalies
 
 def main():
-    print("=== GHOST SECURITY AGENT: CPU SPIKE MONITORING ===")
     init_db()
-    try:
-        while True:
-            disk_ok, free_space = run_health_check()
-            procs, spikes = scan_processes()
-            self_hash = check_file_integrity("ghost_agent.py")
-            
-            if spikes:
-                spike_msg = f"CPU Spikes detected: {spikes}"
-                print(f"[!] {spike_msg}")
-                log_event("CPU_SPIKE", spike_msg)
-            
-            details = f"Disk OK: {disk_ok}, Free: {free_space}MB, Procs: {len(procs)}, Spikes: {len(spikes)}"
-            log_event("POLL_CYCLE", details)
-            print(f"[{datetime.now().strftime("%H:%M:%S")}] Poll logged -> Procs: {len(procs)} | Spikes: {len(spikes)}")
-            
-            time.sleep(POLL_INTERVAL)
-    except KeyboardInterrupt:
-        print("\n[!] Agent loop stopped by user.")
+    disk_ok, writable, free_space = run_health_check()
+    procs, spikes = scan_processes()
+    script_path = os.path.abspath(__file__)
+    self_hash = check_file_integrity(script_path)
+    
+    if spikes:
+        spike_msg = f"CPU Spikes detected: {spikes}"
+        log_event("CPU_SPIKE", spike_msg)
+        
+    anomalies = check_listening_ports()
+    if anomalies:
+        log_event("PORT_ANOMALY", str(anomalies))
+        
+    details = f"Disk OK: {disk_ok}, Free: {free_space}MB, Procs: {len(procs)}, Spikes: {len(spikes)}, Hash: {self_hash[:8] if self_hash else 'N/A'}"
+    log_event("POLL_CYCLE", details)
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] Scan complete -> Procs: {len(procs)} | Free Space: {free_space}MB | Spikes: {len(spikes)}")
 
 if __name__ == "__main__":
     main()

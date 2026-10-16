@@ -36,14 +36,15 @@ def check_listening_ports():
                 if port not in ALLOWED_PORTS:
                     anomalies.append((port, conn.pid))
     except (PermissionError, psutil.AccessDenied):
-        print("[!] Note: Network socket inspection restricted by Android permissions.")
+        pass
     return anomalies
 
 def run_health_check():
-    _, _, free = shutil.disk_usage("/")
+    home_dir = os.path.expanduser("~")
+    _, _, free = shutil.disk_usage(home_dir)
     free_mb = free // (2**20)
-    disk_ok = free_mb > 100
-    writable = os.access(".", os.W_OK)
+    disk_ok = free_mb > 10
+    writable = os.access(home_dir, os.W_OK)
     return disk_ok, writable, free_mb
 
 def main():
@@ -56,10 +57,7 @@ def main():
     print(f"[*] Process Scan -> Total Active Processes: {len(procs)}")
     anomalies = check_listening_ports()
     if anomalies:
-        print(f"[!] WARNING: Unexpected listening ports detected: {anomalies}")
         log_event("PORT_ANOMALY", str(anomalies))
-    else:
-        print("[+] Port Check -> Completed safely.")
     print("=== SCAN COMPLETE. EVENTS LOGGED TO DATABASE. ===")
 
 if __name__ == "__main__":

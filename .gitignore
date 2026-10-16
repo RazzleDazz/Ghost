@@ -1,2 +1,5 @@
 ghost_events.db
 100
+audit.json
+**/__pycache__/
+__pycache__/

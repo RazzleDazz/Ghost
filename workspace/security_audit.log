@@ -1,0 +1,51 @@
+=== NUMUNA GHOST CYBERWORKS - SYSTEM SECURITY AUDIT ===
+Date: Thu Oct 29 15:29:17 UTC 2026
+Device: Google Pixel 10 Pro (Termux Mobile Ops)
+-e 
+[+] ACTIVE NETWORK INTERFACES
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+
+rmnet1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1430
+        inet 10.176.210.53  netmask 255.255.255.255  destination 10.176.210.53
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.97  netmask 255.255.255.0  broadcast 192.168.1.255
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+
+-e 
+[+] IP ROUTES
+INET (IPv4) not configured in this system.
+-e 
+[+] LISTENING & OPEN LOCAL SOCKETS
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+-e 
+[+] ENUMERATING SECURITY BINARIES IN PATH
+-e 
+[+] SCANNING ALL EXECUTABLES IN TERMUX PATH FOR KNOWN AUDIT/SECURITY TOOLS
+/data/data/com.termux/files/usr/bin/clang-refactor
+/data/data/com.termux/files/usr/bin/clang-scan-deps
+/data/data/com.termux/files/usr/bin/dumpsexp
+/data/data/com.termux/files/usr/bin/gdbm_dump
+/data/data/com.termux/files/usr/bin/gi-compile-repository
+/data/data/com.termux/files/usr/bin/gobjdump
+/data/data/com.termux/files/usr/bin/hexdump
+/data/data/com.termux/files/usr/bin/lessecho
+/data/data/com.termux/files/usr/bin/llvm-cxxdump
+/data/data/com.termux/files/usr/bin/llvm-dwarfdump
+/data/data/com.termux/files/usr/bin/llvm-objdump
+/data/data/com.termux/files/usr/bin/pp-trace
+/data/data/com.termux/files/usr/bin/scan-build
+/data/data/com.termux/files/usr/bin/scan-build-py
+/data/data/com.termux/files/usr/bin/scan-view
+/data/data/com.termux/files/usr/bin/ssh-keyscan
+/data/data/com.termux/files/usr/bin/termux-keystore
+/data/data/com.termux/files/usr/bin/termux-media-scan
+/data/data/com.termux/files/usr/bin/termux-restore
+/data/data/com.termux/files/usr/bin/termux-setup-storage
+/data/data/com.termux/files/usr/bin/termux-storage-get
+/data/data/com.termux/files/usr/bin/termux-torch
+/data/data/com.termux/files/usr/bin/termux-wifi-scaninfo
+/data/data/com.termux/files/usr/bin/verify-uselistorder

@@ -23,9 +23,9 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 --- Running Processes (Top 10) ---
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 u0_a472   6664  0.0  0.0 10784368 5712 pts/0   Ss    1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
-u0_a472  22121  0.5  0.0 10886636 4800 pts/0   S+    1970   0:00 /bin/bash ./run.sh
-u0_a472  22122  3.0  0.0 10858972 15180 pts/0  S+    1970   0:00 python3 agent.py
-u0_a472  22126  2.0  0.0 10887096 3740 pts/0   R+    1970   0:00 ps aux
+u0_a472  22609  1.0  0.0 10808812 4948 pts/0   S+    1970   0:00 /bin/bash ./run.sh
+u0_a472  22610  7.0  0.0 10813916 15224 pts/0  S+    1970   0:00 python3 agent.py
+u0_a472  22613  1.0  0.0 10801080 3756 pts/0   R+    1970   0:00 ps aux
 
 --- Storage & Memory Utilization ---
 Disk Root -> Total: 0GB | Used: 0GB | Free: 0GB

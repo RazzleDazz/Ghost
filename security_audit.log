@@ -1,0 +1,1 @@
+Found security/network binaries: {'nmap': '/data/data/com.termux/files/usr/bin/nmap', 'nc': '/data/data/com.termux/files/usr/bin/nc', 'netcat': '/data/data/com.termux/files/usr/bin/netcat', 'ncat': '/data/data/com.termux/files/usr/bin/ncat', 'python3': '/data/data/com.termux/files/usr/bin/python3'}

@@ -14,21 +14,23 @@ rmnet1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1430
         inet 10.176.210.53  netmask 255.255.255.255  destination 10.176.210.53
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
 
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.97  netmask 255.255.255.0  broadcast 192.168.1.255
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
+
 
 
 --- Network Connectivity & Gateway Check ---
-Active Route Outbound IP: 10.176.210.53
+Active Route Outbound IP: 192.168.1.97
 
 --- Running Processes (Top 10) ---
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-u0_a472   6664  0.0  0.0 10784368 2716 pts/0   Ss+   1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
-u0_a472  10299  0.0  0.0 10774664 1080 ?       S     1970   0:00 CROND
-u0_a472  10300  0.0  0.0 10774664 1084 ?       S     1970   0:00 CROND
-u0_a472  10301  5.5  0.1 10918660 21072 ?      Ds    1970   0:00 python3 /data/data/com.termux/files/home/ghost_agent/ghost_agent.py
-u0_a472  10302  0.5  0.0 10835436 4772 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
-u0_a472  10303  3.5  0.0 10885596 15176 ?      S     1970   0:00 python3 agent.py
-u0_a472  10306  1.0  0.0 10811320 3788 ?       R     1970   0:00 ps aux
+u0_a472   6664  0.0  0.0 10784368 2684 pts/0   Ss+   1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
+u0_a472  19235  0.0  0.0 10774664 1084 ?       S     1970   0:00 CROND
+u0_a472  19237  8.0  0.0 10884588 4852 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
+u0_a472  19239 17.0  0.0 10858972 15392 ?      S     1970   0:00 python3 agent.py
+u0_a472  19243  8.0  0.0 10829752 3824 ?       R     1970   0:00 ps aux
 u0_a472  30438  0.0  0.0 10774664 1284 ?       Ss    1970   0:00 crond
 
 --- Storage & Memory Utilization ---
-Termux Home -> Total: 109GB | Used: 102765MB | Free: 8GB
+Termux Home -> Total: 109GB | Used: 102832MB | Free: 8GB

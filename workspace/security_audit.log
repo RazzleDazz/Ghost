@@ -52,3 +52,5 @@ Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
 --- Active Listening Sockets ---
 Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port
 
+--- Active Network Interfaces ---
+ip addr failed

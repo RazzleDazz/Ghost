@@ -20,15 +20,15 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 
 
---- Routing Table ---
-Routing table unavailable
+--- Routing Table (/proc/net/route) ---
+Routing table file unavailable
 
 --- Running Processes (Top 10) ---
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-u0_a472   6664  0.0  0.0 10784368 5716 pts/0   Ss    1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
-u0_a472  24055  1.0  0.0 10776044 4804 pts/0   S+    1970   0:00 /bin/bash ./run.sh
-u0_a472  24056  5.0  0.0 10922460 15280 pts/0  S+    1970   0:00 python3 agent.py
-u0_a472  24060  1.0  0.0 10776504 3772 pts/0   R+    1970   0:00 ps aux
+u0_a472   6664  0.0  0.0 10784368 5732 pts/0   Ss    1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
+u0_a472  24858  0.5  0.0 10886636 4952 pts/0   S+    1970   0:00 /bin/bash ./run.sh
+u0_a472  24859  3.5  0.0 10854876 15324 pts/0  S+    1970   0:00 python3 agent.py
+u0_a472  24863  2.0  0.0 10776504 3752 pts/0   R+    1970   0:00 ps aux
 
 --- Storage & Memory Utilization ---
-Termux Home -> Total: 109GB | Used: 102604MB | Free: 8GB
+Termux Home -> Total: 109GB | Used: 102607MB | Free: 8GB

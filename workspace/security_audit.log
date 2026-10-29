@@ -49,3 +49,6 @@ Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
 /data/data/com.termux/files/usr/bin/termux-torch
 /data/data/com.termux/files/usr/bin/termux-wifi-scaninfo
 /data/data/com.termux/files/usr/bin/verify-uselistorder
+--- Active Listening Sockets ---
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port
+

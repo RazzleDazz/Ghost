@@ -26,11 +26,13 @@ Active Route Outbound IP: 192.168.1.97
 --- Running Processes (Top 10) ---
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 u0_a472   6664  0.0  0.0 10784368 1216 pts/0   Ss+   1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
-u0_a472  17263  0.0  0.0 10774664 1064 ?       S     1970   0:00 CROND
-u0_a472  17265  2.0  0.0 10831340 4760 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
-u0_a472  17270 10.0  0.0 10805724 15132 ?      S     1970   0:00 python3 agent.py
-u0_a472  17273  4.0  0.0 10792888 3688 ?       R     1970   0:00 ps aux
+u0_a472  28052  0.0  0.0 10774664 1060 ?       S     1970   0:00 CROND
+u0_a472  28053  0.0  0.0 10774664 1056 ?       S     1970   0:00 CROND
+u0_a472  28055  9.5  0.1 10891704 21644 ?      Rs    1970   0:00 python3 /data/data/com.termux/files/home/ghost_agent/ghost_agent.py
+u0_a472  28056  1.5  0.0 10782188 4588 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
+u0_a472  28085  6.0  0.0 10811868 15180 ?      S     1970   0:00 python3 agent.py
+u0_a472  28113  2.0  0.0 10782648 3748 ?       R     1970   0:00 ps aux
 u0_a472  30438  0.0  0.0 10774664 884 ?        Ss    1970   0:04 crond
 
 --- Storage & Memory Utilization ---
-Termux Home -> Total: 109GB | Used: 105597MB | Free: 6GB
+Termux Home -> Total: 109GB | Used: 105701MB | Free: 5GB

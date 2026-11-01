@@ -15,22 +15,24 @@ rmnet1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1430
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
 
 wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 192.168.0.189  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet 192.168.1.97  netmask 255.255.255.0  broadcast 192.168.1.255
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
 
 
 
 --- Network Connectivity & Gateway Check ---
-Active Route Outbound IP: 192.168.0.189
+Active Route Outbound IP: 192.168.1.97
 
 --- Running Processes (Top 10) ---
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 u0_a472   6664  0.0  0.0 10784368 1216 pts/0   Ss+   1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
-u0_a472  10306  0.0  0.0 10774664 1052 ?       S     1970   0:00 CROND
-u0_a472  10307  2.5  0.0 10952172 4880 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
-u0_a472  10308  5.5  0.1 10875356 15500 ?      S     1970   0:00 python3 agent.py
-u0_a472  10313  8.0  0.0 10778552 3844 ?       R     1970   0:00 ps aux
-u0_a472  30438  0.0  0.0 10774664 896 ?        Ss    1970   0:07 crond
+u0_a472  27108  0.0  0.0 10774664 1024 ?       S     1970   0:00 CROND
+u0_a472  27110  0.0  0.0 10774664 1028 ?       S     1970   0:00 CROND
+u0_a472  27111 21.0  0.1 10924472 21900 ?      Ds    1970   0:00 python3 /data/data/com.termux/files/home/ghost_agent/ghost_agent.py
+u0_a472  27114  3.0  0.0 10876396 4904 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
+u0_a472  27116 13.0  0.0 10895836 15336 ?      S     1970   0:00 python3 agent.py
+u0_a472  27121  1.0  0.0 10815416 3884 ?       R     1970   0:00 ps aux
+u0_a472  30438  0.0  0.0 10774664 876 ?        Ss    1970   0:07 crond
 
 --- Storage & Memory Utilization ---
-Termux Home -> Total: 109GB | Used: 101485MB | Free: 10GB
+Termux Home -> Total: 109GB | Used: 101597MB | Free: 9GB

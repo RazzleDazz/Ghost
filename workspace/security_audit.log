@@ -11,7 +11,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
 
 rmnet1: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1430
-        inet 10.11.11.39  netmask 255.255.255.255  destination 10.11.11.39
+        inet 10.153.81.236  netmask 255.255.255.255  destination 10.153.81.236
         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 1000  (UNSPEC)
 
 wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
@@ -26,12 +26,11 @@ Active Route Outbound IP: 192.168.1.97
 --- Running Processes (Top 10) ---
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 u0_a472   6664  0.0  0.0 10784368 1216 pts/0   Ss+   1970   0:00 /data/data/com.termux/files/usr/bin/bash -l
-u0_a472  26809  0.0  0.0      0     0 ?        R     1970   0:00 [crond]
-u0_a472  26810  0.0  0.0 10774664 1012 ?       S     1970   0:00 CROND
-u0_a472  26812  2.5  0.0 10855916 4688 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
-u0_a472  26813  6.5  0.0 10838492 15200 ?      S     1970   0:00 python3 agent.py
-u0_a472  26817  6.0  0.0 10813368 3720 ?       R     1970   0:00 ps aux
+u0_a472   8157  0.0  0.0 10774664 1016 ?       S     1970   0:00 CROND
+u0_a472   8159  2.5  0.0 10817004 4696 ?       Ss    1970   0:00 /bin/bash /data/data/com.termux/files/home/ghost_agent/run.sh
+u0_a472   8160  5.5  0.0 10813916 15160 ?      S     1970   0:00 python3 agent.py
+u0_a472   8203  4.0  0.0 10833848 3644 ?       R     1970   0:00 ps aux
 u0_a472  30438  0.0  0.0 10774664 852 ?        Ss    1970   0:12 crond
 
 --- Storage & Memory Utilization ---
-Termux Home -> Total: 109GB | Used: 104269MB | Free: 7GB
+Termux Home -> Total: 109GB | Used: 104432MB | Free: 7GB

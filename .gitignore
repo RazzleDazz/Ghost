@@ -5,6 +5,7 @@
 __pycache__/
 audit.json
 backups/
+bridge_audit.log
 ghost_events.db
 logs/
 workspace/cron.log

@@ -1,7 +1,10 @@
-ghost_events.db
-100
-audit.json
 **/__pycache__/
-__pycache__/
-backups/
 *.db
+.pytest_cache/
+100
+__pycache__/
+audit.json
+backups/
+ghost_events.db
+logs/
+workspace/cron.log

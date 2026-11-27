@@ -34,10 +34,11 @@ jobs:
         run: |
           python -m pytest -v --timeout=15
 
-      - name: Verify agent CLI & hash-chain integrity on fresh DB
+      - name: Verify agent CLI, hash-chain, AST scan & SQLite maintenance
         env:
           GHOST_DB_PATH: /tmp/ci_ghost_events.db
           GHOST_LOG_DIR: /tmp/ci_logs
         run: |
           python agent.py
           python agent.py --verify-chain
+          python ast_and_db_tools.py

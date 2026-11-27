@@ -30,8 +30,8 @@ def build_payload_request(
     return req, timeout
 
 
-def test_payload(
-    command_text: str,
+def _probe_payload(
+    command_text: str = "uptime",
     target_url: str | None = None,
     timeout: float = 2.0,
 ) -> Dict[str, Any]:
@@ -66,8 +66,13 @@ def test_build_payload_request_contract() -> None:
 
 if __name__ == "__main__":
     for cmd in ("uptime", "df -h"):
-        res = test_payload(cmd)
+        res = _probe_payload(cmd)
         if res["ok"]:
             print(f"[+] Tested payload '{cmd}': HTTP {res['status']} -> {res['response']}")
         else:
             print(f"[-] Tested payload '{cmd}': Offline/Unreachable -> {res['error']}")
+
+
+def test_payload_offline_behavior() -> None:
+    res = _probe_payload("uptime", target_url="http://127.0.0.1:9/health", timeout=0.2)
+    assert isinstance(res, dict) and "ok" in res
